@@ -53,25 +53,27 @@ public class SpecialDaoImpl extends ApplicationDaoImpl<SpecialEntity> implements
     }
 
     WeeklyPeriodSearchCriteriaTo activePeriodCriteria = criteria.getActivePeriod();
+    if (activePeriodCriteria != null) {
 
-    DayOfWeek startingDay = activePeriodCriteria.getStartingDay();
-    if (startingDay != null) {
-      query.where(Alias.$(special.getActivePeriod().getStartingDay()).eq(startingDay));
-    }
+      DayOfWeek startingDay = activePeriodCriteria.getStartingDay();
+      if (startingDay != null) {
+        query.where(Alias.$(special.getActivePeriod().getStartingDay()).eq(startingDay));
+      }
 
-    Integer startingHour = activePeriodCriteria.getStartingHour();
-    if (startingHour != null) {
-      query.where(Alias.$(special.getActivePeriod().getStartingHour()).eq(startingHour));
-    }
+      Integer startingHour = activePeriodCriteria.getStartingHour();
+      if (startingHour != null) {
+        query.where(Alias.$(special.getActivePeriod().getStartingHour()).eq(startingHour));
+      }
 
-    DayOfWeek endingDay = activePeriodCriteria.getEndingDay();
-    if (endingDay != null) {
-      query.where(Alias.$(special.getActivePeriod().getEndingDay()).eq(endingDay));
-    }
+      DayOfWeek endingDay = activePeriodCriteria.getEndingDay();
+      if (endingDay != null) {
+        query.where(Alias.$(special.getActivePeriod().getEndingDay()).eq(endingDay));
+      }
 
-    Integer endingHour = activePeriodCriteria.getEndingHour();
-    if (endingHour != null) {
-      query.where(Alias.$(special.getActivePeriod().getEndingHour()).eq(endingHour));
+      Integer endingHour = activePeriodCriteria.getEndingHour();
+      if (endingHour != null) {
+        query.where(Alias.$(special.getActivePeriod().getEndingHour()).eq(endingHour));
+      }
     }
 
     Money specialPrice = criteria.getSpecialPrice();
